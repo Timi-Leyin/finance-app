@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { useCallback } from "react";
+import { Fragment, useCallback } from "react";
 
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -10,7 +10,7 @@ import OnBoarding1 from "./pages/OnBoarding1";
 import GetStarted from "./pages/GetStarted";
 import OnboardingSlider from "./pages/OnboardingSlider";
 const Stack = createNativeStackNavigator();
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -28,8 +28,10 @@ export default function App() {
   }
 
   return (
-    // <View onLayout={onLayoutRootView}>
-     <OnboardingSlider />
-    // </View>
+    <Fragment>
+      {/* <View onLayout={onLayoutRootView}> */}
+      <RootApp />
+      {/* </View> */}
+    </Fragment>
   );
 }
