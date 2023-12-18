@@ -5,8 +5,6 @@ import {
   StyleSheet,
   Pressable,
   Image,
-  TouchableNativeFeedback,
-  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import globalStyle from "../styles/global";
@@ -18,44 +16,44 @@ const GetStarted = () => {
       {/* <Preloader /> */}
       <ImageBackground
         style={style.img_bg}
-        source={require("../assets/images/cover-2.png")}
-      />
+        source={require("../assets/images/onboarding/pattern.png")}
+      >
+        <View style={style.content}>
+          <Pressable style={style.sign_up_button}>
+            <Text style={style.sign_up_btn_text}>Sign Up for Free</Text>
+          </Pressable>
+          <View style={style.divider_container}>
+            <View style={style.divider}></View>
+            <Text style={style.divider_text}> Or Continue with</Text>
+            <View style={style.divider}></View>
+          </View>
+          {/* <StyleText text="Or Continue with" style={{fontSize:20, ...style.divider_text}} /> */}
 
-      <View style={style.content}>
-        <TouchableOpacity style={style.sign_up_button}>
-          <Text style={style.sign_up_btn_text}>Sign Up for Free</Text>
-        </TouchableOpacity>
-        <View style={style.divider_container}>
-          <View style={style.divider}></View>
-          <Text style={style.divider_text}> Or Continue with</Text>
-          <View style={style.divider}></View>
+          <View style={style.login_alt_container}>
+            <Pressable style={style.login_alt_btn}>
+              <Image
+                style={style.login_alt_icon}
+                source={require("../assets/images/apple.png")}
+              />
+            </Pressable>
+            <Pressable style={style.login_alt_btn}>
+              <Image
+                style={style.login_alt_icon}
+                source={require("../assets/images/google.png")}
+              />
+            </Pressable>
+            <Pressable style={style.login_alt_btn}>
+              <Image
+                style={style.login_alt_icon}
+                source={require("../assets/images/facebook.png")}
+              />
+            </Pressable>
+          </View>
+          <Text style={style.login_info_text}>
+            Have an account ? <Text style={globalStyle.link}>Login</Text>
+          </Text>
         </View>
-        {/* <StyleText text="Or Continue with" style={{fontSize:20, ...style.divider_text}} /> */}
-
-        <View style={style.login_alt_container}>
-          <TouchableOpacity style={style.login_alt_btn}>
-            <Image
-              style={style.login_alt_icon}
-              source={require("../assets/images/apple.png")}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={style.login_alt_btn}>
-            <Image
-              style={style.login_alt_icon}
-              source={require("../assets/images/google.png")}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={style.login_alt_btn}>
-            <Image
-              style={style.login_alt_icon}
-              source={require("../assets/images/facebook.png")}
-            />
-          </TouchableOpacity>
-        </View>
-        <Text style={style.login_info_text}>
-          Have an account ? <Text style={globalStyle.link}>Login</Text>
-        </Text>
-      </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -66,6 +64,7 @@ const style = StyleSheet.create({
   },
   img_bg: {
     height: "100%",
+    objectFit:"contain"
   },
   content: {
     position: "absolute",
@@ -74,12 +73,12 @@ const style = StyleSheet.create({
     minHeight: 250,
     bottom: 0,
     elevation: 50,
-    shadowColor: "#000",
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    boxShadowColor: "#000",
+    boxShadowOpacity: 1,
+    boxShadowRadius: 10,
     borderTopLeftRadius: 70,
     borderTopRightRadius: 70,
-    backgroundColor: "#eee",
+    backgroundColor: "rgb(58, 61, 67)",
     zIndex: 1,
   },
   sign_up_button: {
@@ -87,7 +86,7 @@ const style = StyleSheet.create({
     padding: 20,
     elevation: 2,
     marginVertical: 10,
-    backgroundColor: "darkorange",
+    backgroundColor: "rgb(28, 30, 35)",
     borderRadius: 40,
   },
   sign_up_btn_text: {
@@ -114,6 +113,7 @@ const style = StyleSheet.create({
   divider_text: {
     paddingVertical: 20,
     // fontWeight:"bold",
+    color: "#fff",
     opacity: 0.5,
     fontSize: 20,
     fontFamily: "molgen",
@@ -149,6 +149,7 @@ const style = StyleSheet.create({
   login_info_text: {
     textAlign: "center",
     marginTop: 15,
+    color: "#fff",
     fontSize: 20,
     // fontWeight:"900",
     fontFamily: "molgen",
