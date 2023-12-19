@@ -10,7 +10,7 @@ import React from "react";
 import globalStyle from "../styles/global";
 import Preloader from "../components/Preloader";
 
-const GetStarted = () => {
+const GetStarted = ({navigation}:any) => {
   return (
     <View style={style.container}>
       {/* <Preloader /> */}
@@ -49,7 +49,7 @@ const GetStarted = () => {
               />
             </Pressable>
           </View>
-          <Text style={style.login_info_text}>
+          <Text style={style.login_info_text} onPress={()=>navigation.navigate("Login")}>
             Have an account ? <Text style={globalStyle.link}>Login</Text>
           </Text>
         </View>
