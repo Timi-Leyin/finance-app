@@ -15,6 +15,9 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     molgen: require("./assets/fonts/Brightania.otf"),
+    Titillium_Regular: require("./assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf"),
+    Titillium_Bold: require("./assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf"),
+    Titillium_Thick: require("./assets/fonts/Titillium_Web/TitilliumWeb-Black.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
