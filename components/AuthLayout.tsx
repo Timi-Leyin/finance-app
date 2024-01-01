@@ -47,26 +47,23 @@ const style = StyleSheet.create({
     },
     backBtn:{
       padding:10,
-      backgroundColor:"#eee",
+    //   backgroundColor:"#eee",
+    //   elevation:10,
+    //   width:50,
+    //   height:50
       borderRadius:10,
       justifyContent:"center",
-      shadowColor:"#000",
-      shadowOpacity:.2,
-      shadowRadius:10,
-      elevation:10,
       alignItems:"center",
-      width:50,
-      height:50
     },
     pageTitle:{
-      fontSize:30,
-      fontFamily:"molgen"
+      fontSize:35,
+      fontFamily:"Titillium_Thick"
     },
     infoText:{
         paddingHorizontal:30,
-        paddingVertical:15,
+        paddingBottom:15,
         fontSize:16,
-        // fontFamily:"molgen"
+        fontFamily:"Titillium_Regular"
     }
 })
 
