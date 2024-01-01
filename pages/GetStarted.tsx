@@ -91,16 +91,17 @@ const style = StyleSheet.create({
   },
   sign_up_btn_text: {
     textAlign: "center",
-    fontFamily: "molgen",
+    fontFamily: "Titillium_Thick",
     // fontWeight:"bold",
-    fontSize: 20,
+    fontSize: 16,
     color: "#fff",
   },
   divider_container: {
-    flex: 1,
+    // flex: 1,
     position: "relative",
     width: "100%",
     flexDirection: "row",
+    justifyContent:"center",
     alignItems: "center",
     gap: 10,
   },
@@ -115,8 +116,8 @@ const style = StyleSheet.create({
     // fontWeight:"bold",
     color: "#fff",
     opacity: 0.5,
-    fontSize: 20,
-    fontFamily: "molgen",
+    fontSize: 16,
+    fontFamily: "Titillium_Bold",
     textAlign: "center",
   },
   login_alt_container: {
@@ -150,9 +151,9 @@ const style = StyleSheet.create({
     textAlign: "center",
     marginTop: 15,
     color: "#fff",
-    fontSize: 20,
+    fontSize: 16,
     // fontWeight:"900",
-    fontFamily: "molgen",
+    fontFamily: "Titillium_Bold",
   },
 });
 
