@@ -74,17 +74,17 @@ const style = StyleSheet.create({
     marginTop: "auto",
   },
   headingText: {
-    fontSize: 100,
-    fontFamily: "molgen",
+    fontSize: 60,
+    fontFamily: "Titillium_Thick",
     color: "white",
   },
   textInfo: {
     maxWidth: 400,
     marginVertical: 10,
     paddingHorizontal: 30,
-    fontSize: 20,
+    fontSize: 15,
     color: "white",
-    fontFamily: "molgen",
+    fontFamily: "Titillium_Regular",
   },
   actions: {
     display: "flex",
