@@ -20,16 +20,16 @@ const GetStarted = ({navigation}:any) => {
       >
         <View style={style.content}>
           <Pressable style={style.sign_up_button}>
-            <Text style={style.sign_up_btn_text}>Sign Up for Free</Text>
+            <Text style={style.sign_up_btn_text} onPress={()=> navigation.navigate("Login")}>Login with Honor World</Text>
           </Pressable>
-          <View style={style.divider_container}>
+          {/* <View style={style.divider_container}>
             <View style={style.divider}></View>
             <Text style={style.divider_text}> Or Continue with</Text>
             <View style={style.divider}></View>
-          </View>
+          </View> */}
           {/* <StyleText text="Or Continue with" style={{fontSize:20, ...style.divider_text}} /> */}
 
-          <View style={style.login_alt_container}>
+          {/* <View style={style.login_alt_container}>
             <Pressable style={style.login_alt_btn}>
               <Image
                 style={style.login_alt_icon}
@@ -48,10 +48,10 @@ const GetStarted = ({navigation}:any) => {
                 source={require("../assets/images/facebook.png")}
               />
             </Pressable>
-          </View>
-          <Text style={style.login_info_text} onPress={()=>navigation.navigate("Login")}>
+          </View> */}
+          {/* <Text style={style.login_info_text} onPress={()=>navigation.navigate("Login")}>
             Have an account ? <Text style={globalStyle.link}>Login</Text>
-          </Text>
+          </Text> */}
         </View>
       </ImageBackground>
     </View>

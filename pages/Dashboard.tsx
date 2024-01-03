@@ -17,8 +17,8 @@ const Dashboard = () => {
         <Text style={styles.introText}>Hi Original Timi,</Text>
 
         <Pressable style={styles.notificationBtn}>
-          <View style={styles.dot}></View>
-          <FontAwesome size={20} name="bell-o" />
+          {/* <View style={styles.dot}></View> */}
+          <FontAwesome size={20} name="user" />
         </Pressable>
       </View>
       <RefreshControl>
@@ -43,14 +43,14 @@ const Dashboard = () => {
           <Pressable style={styles.card}>
             <FontAwesome name="money" size={30} />
             <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Pay Money
+              Buy Data
             </Text>
             <Text style={styles.info}>To wallet, bank or mobile number</Text>
           </Pressable>
           <Pressable style={{ ...styles.card, ...styles.card1 }}>
-            <FontAwesome name="money" size={30} />
+            <FontAwesome name="phone" size={30} />
             <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Pay Money
+              Buy Airtime
             </Text>
             <Text style={styles.info}>To wallet, bank or mobile number</Text>
           </Pressable>
@@ -58,16 +58,16 @@ const Dashboard = () => {
 
         <View style={styles.cards}>
           <Pressable style={{ ...styles.card, ...styles.card2 }}>
-            <FontAwesome name="money" size={30} />
+            <FontAwesome name="pagelines" size={30} />
             <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Pay Money
+              Pay Subscriptions
             </Text>
             <Text style={styles.info}>To wallet, bank or mobile number</Text>
           </Pressable>
           <Pressable style={{ ...styles.card, ...styles.card3 }}>
-            <FontAwesome name="money" size={30} />
+            <FontAwesome name="superpowers" size={30} />
             <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Pay Money
+              Pay Biils
             </Text>
             <Text style={styles.info}>To wallet, bank or mobile number</Text>
           </Pressable>
@@ -96,7 +96,10 @@ const styles = StyleSheet.create({
   },
   notificationBtn: {
     position: "relative",
-    padding: 15,
+    width: 50,
+    height:50,
+    justifyContent:"center",
+    alignItems:"center",
     backgroundColor: "rgba(0,10,200,.2)",
     borderRadius: 100,
   },

@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React, { Component } from "react";
 
-const Input = ({label, error, placeholder, id, type}:{label:string, error?:string, placeholder?:string, id?:string, type?:any}) => {
+const Input = ({label, error, placeholder, id, type, onInput, defaultValue}:{label:string, error?:string, placeholder?:string, id?:string, type?:any, onInput?:any, defaultValue?:string}) => {
   return (
     <View style={style.container}>
-      {/* <Text style={style.label}>{label}</Text> */}
-      <TextInput style={style.input} keyboardType={type} placeholder={placeholder} id={id} />
+      <Text style={style.label}>{label}</Text>
+      <TextInput onChangeText={onInput} defaultValue={defaultValue} style={style.input} keyboardType={type} placeholder={placeholder} id={id} />
       <Text style={style.error}>{error || ""}</Text>
     </View>
   );
