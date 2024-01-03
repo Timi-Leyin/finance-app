@@ -15,7 +15,7 @@ const AuthLayout = ({children, title}:{children:React.ReactNode, title?:string})
       </View>
       <View>
         <Text style={style.infoText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, blanditiis?
+            Login Account with your Credentials
         </Text>
       </View>
       {children}
