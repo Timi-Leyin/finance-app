@@ -10,14 +10,15 @@ import AuthLayout from "../components/AuthLayout";
 import Input from "../components/Input";
 import login from "../actions/login";
 import { useState } from "react";
+import storage from "../config/storage";
 
-const Login = () => {
+const Login = ({ navigation }: any) => {
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
   return (
     <AuthLayout title="Login">
       <View>
@@ -45,15 +46,24 @@ const Login = () => {
         {/* <Text style={style.Qtext}>
           Forgotten Password?
         </Text> */}
-        <Pressable onPress={() => login(loginDetails, (err:any, data:any)=>{
-          if(err){
-            return setError(err.AxiosError)
-          }
+        <Pressable
+          onPress={() =>
+            login(loginDetails, (err: any, data: any) => {
+              if (err) {
+                return setError(err.AxiosError);
+              }
 
-          setError("");
-          console.log(data.data)
-          
-        })} style={style.submitBtn}>
+              setError("");
+              storage.save({
+                key: "login",
+                data: data.data,
+              });
+              console.log(data.data);
+              navigation.navigate("Dashboard");
+            })
+          }
+          style={style.submitBtn}
+        >
           <Text style={style.btnText}>Submit</Text>
         </Pressable>
 
