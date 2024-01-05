@@ -7,74 +7,103 @@ import {
   Image,
   RefreshControl,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
+import storage from "../config/storage";
 
-const Dashboard = () => {
+const Dashboard = ({ navigation }: any) => {
+  const [userDetails, setUserDetails] = useState(!null);
+  useEffect(() => {
+    storage
+      .load({
+        key: "login",
+      })
+      .then((data) => {
+        setUserDetails(data);
+      })
+      .catch((err) => {
+        console.log(err);
+        navigation.navigate("Login");
+      });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.introText}>Hi Original Timi,</Text>
+      {userDetails ? (
+        <View>
+          <View style={styles.header}>
+            <Text style={styles.introText}>Hi Original Timi,</Text>
 
-        <Pressable style={styles.notificationBtn}>
-          {/* <View style={styles.dot}></View> */}
-          <FontAwesome size={20} name="user" />
-        </Pressable>
-      </View>
-      <RefreshControl>
-        {/* balance */}
-
-        <View style={styles.balanceWrapper}>
-          <Text style={styles.balanceText}>₦5,600</Text>
-          <View style={styles.currencyWrapper}>
-            {/* NGN Flag */}
-            <Image
-              source={require("../assets/images/nigeria.png")}
-              style={styles.flag}
-            />
-            <Text style={styles.currency}>NGN</Text>
+            <Pressable style={styles.notificationBtn}>
+              {/* <View style={styles.dot}></View> */}
+              <FontAwesome size={20} name="user" />
+            </Pressable>
           </View>
+          <RefreshControl>
+            {/* balance */}
+
+            <View style={styles.balanceWrapper}>
+              <Text style={styles.balanceText}>₦5,600</Text>
+              <View style={styles.currencyWrapper}>
+                {/* NGN Flag */}
+                <Image
+                  source={require("../assets/images/nigeria.png")}
+                  style={styles.flag}
+                />
+                <Text style={styles.currency}>NGN</Text>
+              </View>
+            </View>
+
+            <Text style={styles.title}>What do you want to do today?</Text>
+            {/* dashboard */}
+
+            <View style={styles.cards}>
+              <Pressable style={styles.card}>
+                <FontAwesome name="money" size={30} />
+                <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
+                  Buy Data
+                </Text>
+                <Text style={styles.info}>
+                  To wallet, bank or mobile number
+                </Text>
+              </Pressable>
+              <Pressable style={{ ...styles.card, ...styles.card1 }}>
+                <FontAwesome name="phone" size={30} />
+                <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
+                  Buy Airtime
+                </Text>
+                <Text style={styles.info}>
+                  To wallet, bank or mobile number
+                </Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.cards}>
+              <Pressable style={{ ...styles.card, ...styles.card2 }}>
+                <FontAwesome name="pagelines" size={30} />
+                <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
+                  Pay Subscriptions
+                </Text>
+                <Text style={styles.info}>
+                  To wallet, bank or mobile number
+                </Text>
+              </Pressable>
+              <Pressable style={{ ...styles.card, ...styles.card3 }}>
+                <FontAwesome name="superpowers" size={30} />
+                <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
+                  Pay Biils
+                </Text>
+                <Text style={styles.info}>
+                  To wallet, bank or mobile number
+                </Text>
+              </Pressable>
+            </View>
+
+            <Text style={styles.title}>Recent Transactions</Text>
+          </RefreshControl>
         </View>
-
-        <Text style={styles.title}>What do you want to do today?</Text>
-        {/* dashboard */}
-
-        <View style={styles.cards}>
-          <Pressable style={styles.card}>
-            <FontAwesome name="money" size={30} />
-            <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Buy Data
-            </Text>
-            <Text style={styles.info}>To wallet, bank or mobile number</Text>
-          </Pressable>
-          <Pressable style={{ ...styles.card, ...styles.card1 }}>
-            <FontAwesome name="phone" size={30} />
-            <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Buy Airtime
-            </Text>
-            <Text style={styles.info}>To wallet, bank or mobile number</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.cards}>
-          <Pressable style={{ ...styles.card, ...styles.card2 }}>
-            <FontAwesome name="pagelines" size={30} />
-            <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Pay Subscriptions
-            </Text>
-            <Text style={styles.info}>To wallet, bank or mobile number</Text>
-          </Pressable>
-          <Pressable style={{ ...styles.card, ...styles.card3 }}>
-            <FontAwesome name="superpowers" size={30} />
-            <Text style={{ ...styles.title, ...styles.dashboardTitle }}>
-              Pay Biils
-            </Text>
-            <Text style={styles.info}>To wallet, bank or mobile number</Text>
-          </Pressable>
-        </View>
-
-        <Text style={styles.title}>Recent Transactions</Text>
-      </RefreshControl>
+      ) : (
+        <Text>Loading ...</Text>
+      )}
     </SafeAreaView>
   );
 };
@@ -97,9 +126,9 @@ const styles = StyleSheet.create({
   notificationBtn: {
     position: "relative",
     width: 50,
-    height:50,
-    justifyContent:"center",
-    alignItems:"center",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "rgba(0,10,200,.2)",
     borderRadius: 100,
   },
