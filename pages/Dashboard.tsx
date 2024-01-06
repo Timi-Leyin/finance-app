@@ -53,7 +53,7 @@ const Dashboard = ({ navigation }: any) => {
       {userDetails ? (
         <View>
           <View style={styles.header}>
-            {/* <Text style={styles.introText}>Hi {userDetails.data.firstName} {userDetails.data.lastName},</Text> */}
+            <Text style={styles.introText}>Hi {userDetails.data.firstName} {userDetails.data.lastName},</Text>
 
             <Pressable style={styles.notificationBtn}>
               {/* <View style={styles.dot}></View> */}
