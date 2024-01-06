@@ -12,3 +12,8 @@ export const postRequest = (url:string,data:any, callback:any)=>{
    return AxiosInstance.post(url,data).then((res)=> callback(null, res))
     .catch((err)=> callback(err))
 }
+
+export const getRequest = (url:string,data:any, callback:any)=>{
+    return AxiosInstance.get(url,data).then((res)=> callback(null, res))
+     .catch((err)=> callback(err))
+ }
